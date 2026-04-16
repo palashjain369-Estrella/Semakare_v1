@@ -1,0 +1,23 @@
+global-styles:
+  version: 1.x
+  css:
+    theme:
+      css/styles.css: {}
+  js:
+    js/tailwind-config.js: { attributes: { id: tailwind-config } }
+  dependencies:
+    - core/drupal
+
+whr-calculator:
+  version: 1.x
+  js:
+    js/whr-calculator.js: {}
+  dependencies:
+    - core/drupal
+
+bmi-calculator:
+  version: 1.x
+  js:
+    js/bmi-calculator.js: {}
+  dependencies:
+    - core/drupal

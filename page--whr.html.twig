@@ -1,0 +1,213 @@
+{{ attach_library('semakare_theme/whr-calculator') }}
+<!-- Intro Hero Section -->
+<section class="py-20 md:py-24 bg-gradient-to-b from-surface to-surface-container-low">
+<div class="max-w-4xl mx-auto px-8 text-center">
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-6">
+                Health &amp; Wellness <span class="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">Calculators</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-12 max-w-2xl mx-auto">
+                Simple, science-backed tools designed to help you understand your body and track your progress toward better health.
+            </p>
+<!-- Centrally-aligned sub-navigation bar -->
+<div class="inline-flex p-1.5 bg-surface-container rounded-2xl shadow-inner">
+<div class="flex flex-wrap justify-center gap-1">
+<button class="px-6 py-3 rounded-xl text-sm font-bold transition-all text-on-surface-variant hover:text-primary">
+                        BMI Calculator
+                    </button>
+<button class="px-6 py-3 rounded-xl text-sm font-bold transition-all bg-white text-primary shadow-sm border border-outline-variant/10">
+                        Waist to Hip Ratio
+                    </button>
+<button class="px-6 py-3 rounded-xl text-sm font-bold transition-all text-on-surface-variant hover:text-primary">
+                        Ideal Weight
+                    </button>
+<button class="px-6 py-3 rounded-xl text-sm font-bold transition-all text-on-surface-variant hover:text-primary">
+                        CV Risk
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Hero Content (WHR Specific) -->
+<section class="relative overflow-hidden py-16">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="z-10">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold uppercase tracking-widest mb-6">Health Insights Tool</span>
+<h2 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-[1.1] mb-8">
+                    Understanding Your <span class="bg-gradient-to-r from-[#6C5CE7] to-[#A29BFE] bg-clip-text text-transparent">Body Shape</span>
+</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed mb-10 max-w-xl">
+                    The Waist-to-Hip Ratio (WHR) is a quick way to see how your body stores fat and understand your metabolic health.
+                </p>
+<a class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-primary text-on-primary font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:translate-y-[-2px] transition-all" href="#calculator">
+                    Measure Your Health
+                    <span class="material-symbols-outlined">arrow_downward</span>
+</a>
+</div>
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-fixed opacity-20 blur-3xl rounded-full"></div>
+<div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-fixed opacity-20 blur-3xl rounded-full"></div>
+<div class="relative rounded-xl overflow-hidden shadow-2xl">
+<img class="w-full aspect-[4/3] object-cover" data-alt="Modern minimalist fitness studio setting with professional measuring tape and healthy lifestyle elements in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSvUIQUY9gNPXoeaWUKYVeOcacuSDq6VBrN5BWbH6VrDQU4Tj0BYX2U_TyzM91jWEkFUr-zQkznw34wtmV38bV-AC4OYLDaiKquqTvZixXmPp5da_B73jsI-9vAoQ31jKQUlxxeuJN5iGGU2hgC8iGWWFIgjK4Yx9Jzx7uV2ft--8FJ-V-8CuN7FHoGSECuJmLHS3e2heoWr2oxMO73Bt44DMGykg_9LzfbHcB25zolnlsgCVlM7vSl4giMjVHcpgqwf-7zz6ArMcX"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Calculator Section -->
+<section class="bg-surface-container-low py-24" id="calculator">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Calculator UI -->
+<div class="lg:col-span-5">
+<div class="bg-surface-container-lowest p-8 md:p-10 rounded-lg shadow-xl shadow-on-surface/5">
+<h2 class="font-headline text-3xl font-bold mb-8">WHR Calculator</h2>
+<div class="space-y-6">
+<!-- Gender Toggle -->
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2">Biological Sex</label>
+<div class="flex gap-4">
+    <label class="flex-1 cursor-pointer">
+        <input type="radio" name="gender" value="male" class="peer sr-only" checked>
+        <div class="text-center px-6 py-4 rounded-lg bg-surface-container-highest border-2 border-transparent peer-checked:border-primary peer-checked:bg-primary-container peer-checked:text-primary transition-all font-semibold">Male</div>
+    </label>
+    <label class="flex-1 cursor-pointer">
+        <input type="radio" name="gender" value="female" class="peer sr-only">
+        <div class="text-center px-6 py-4 rounded-lg bg-surface-container-highest border-2 border-transparent peer-checked:border-primary peer-checked:bg-primary-container peer-checked:text-primary transition-all font-semibold">Female</div>
+    </label>
+</div>
+</div>
+
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2">Waist Circumference (cm)</label>
+<input id="waist-input" class="w-full px-6 py-4 rounded-lg bg-surface-container-highest border-none focus:ring-2 focus:ring-primary transition-all text-on-surface" placeholder="Measure at the narrowest point" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2">Hip Circumference (cm)</label>
+<input id="hip-input" class="w-full px-6 py-4 rounded-lg bg-surface-container-highest border-none focus:ring-2 focus:ring-primary transition-all text-on-surface" placeholder="Measure at the widest point" type="number"/>
+</div>
+<!-- Error Message -->
+<div id="error-message" class="text-error text-sm font-semibold hidden">Please enter valid positive numbers.</div>
+
+<button id="calculate-btn" class="w-full py-4 rounded-lg bg-gradient-to-r from-[#6C5CE7] to-[#A29BFE] text-white font-bold text-lg shadow-lg shadow-primary/25 hover:opacity-90 transition-all active:scale-95">
+                                Calculate WHR
+                            </button>
+</div>
+</div>
+</div>
+<!-- Result & Visualization -->
+<div class="lg:col-span-7">
+<div class="h-full glass-card p-8 md:p-10 rounded-lg border border-outline-variant/15 flex flex-col justify-center">
+<div class="text-center mb-10">
+<div class="text-sm font-bold text-secondary uppercase tracking-widest mb-2">Your Result</div>
+<div class="text-6xl font-headline font-extrabold text-on-surface transition-all duration-300" id="whr-result">0.00</div>
+</div>
+<div class="space-y-8">
+<div class="relative h-4 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div id="status-low" class="h-full w-1/3 bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-on-surface opacity-50 transition-colors duration-500">LOW</div>
+<div id="status-moderate" class="h-full w-1/3 bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-on-surface opacity-50 transition-colors duration-500">MODERATE</div>
+<div id="status-high" class="h-full w-1/3 bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-on-surface opacity-50 transition-colors duration-500">HIGH</div>
+</div>
+<div class="flex justify-between text-xs font-semibold text-on-surface-variant px-1">
+<span>Below 0.90 (M) / 0.80 (W)</span>
+<span>0.90 - 1.0 (M) / 0.80 - 0.85 (W)</span>
+<span>Above 1.0 (M) / 0.85 (W)</span>
+</div>
+</div>
+<div class="mt-12 p-6 rounded-lg bg-primary-fixed/30 border border-primary/10">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary" data-weight="fill">info</span>
+<p class="text-sm leading-relaxed text-on-surface-variant">
+                                    Your Waist-to-Hip Ratio indicates how much abdominal fat you are carrying. Central obesity is linked to higher metabolic risks.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Educational Content (Bento Style) -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline text-4xl font-extrabold mb-6">What is Waist-to-Hip Ratio?</h2>
+<p class="text-on-surface-variant text-lg">WHR is a measurement used by health professionals to help assess your overall health and risk of developing certain conditions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Health Implications -->
+<div class="md:col-span-2 bg-surface-container p-10 rounded-xl relative overflow-hidden group">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-[#A29BFE]/10 rounded-full blur-3xl transition-transform group-hover:scale-110"></div>
+<h3 class="font-headline text-2xl font-bold mb-8">Health Implications</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">favorite</span>
+<h4 class="font-bold mb-2">Cardiovascular Risk</h4>
+<p class="text-sm text-on-surface-variant">A higher ratio suggests higher heart disease risk due to visceral fat.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">vital_signs</span>
+<h4 class="font-bold mb-2">Metabolic Health</h4>
+<p class="text-sm text-on-surface-variant">Indicates how effectively your body processes insulin and energy.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary mb-4" style="font-size: 32px;">emergency</span>
+<h4 class="font-bold mb-2">Type 2 Diabetes</h4>
+<p class="text-sm text-on-surface-variant">Strong correlation between waist circumference and insulin resistance.</p>
+</div>
+</div>
+</div>
+<!-- Comparison Card -->
+<div class="bg-gradient-to-br from-[#6C5CE7] to-[#A29BFE] p-10 rounded-xl text-white">
+<h3 class="font-headline text-2xl font-bold mb-6">WHR vs. BMI</h3>
+<p class="text-white/80 mb-8 leading-relaxed">While BMI looks at total weight relative to height, WHR measures <strong>fat distribution</strong>, which is often a more accurate predictor of chronic health issues.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-3 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
+<span class="text-sm font-semibold">Targets "Hidden" Visceral Fat</span>
+</div>
+<div class="flex items-center gap-3 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
+<span class="text-sm font-semibold">Better Heart Risk Accuracy</span>
+</div>
+</div>
+</div>
+</div>
+<!-- How to Measure -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/15 md:col-span-3">
+<h3 class="font-headline text-2xl font-bold mb-8">How to Measure Correctly</h3>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-12">
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary">straighten</span>
+</div>
+<h4 class="font-bold mb-2">1. The Waist</h4>
+<p class="text-sm text-on-surface-variant">Stand straight and exhale. Measure at the midpoint between the lower rib and iliac crest (usually the belly button).</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary">accessibility_new</span>
+</div>
+<h4 class="font-bold mb-2">2. The Hips</h4>
+<p class="text-sm text-on-surface-variant">Measure at the widest part of your buttocks, keeping the tape parallel to the floor.</p>
+</div>
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary">calculate</span>
+</div>
+<h4 class="font-bold mb-2">3. The Math</h4>
+<p class="text-sm text-on-surface-variant">Divide your waist measurement by your hip measurement. Or just use our calculator above!</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-highest p-8 rounded-xl border border-outline-variant/15 flex flex-col justify-center">
+<h3 class="font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-error">warning</span>
+                        Bias &amp; Limitations
+                    </h3>
+<p class="text-xs leading-relaxed text-on-surface-variant space-y-2">
+                        WHR can be affected by factors like <strong>age, muscle mass, and pregnancy</strong>. It may also vary by <strong>ethnicity</strong>, as body fat distribution patterns differ across populations. Use this as a guide, not a diagnostic tool.
+                    </p>
+</div>
+</div>
+</div>
+</section>

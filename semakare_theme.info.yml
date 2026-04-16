@@ -1,0 +1,12 @@
+name: 'SemaKare Custom Theme'
+type: theme
+description: 'A modern, responsive, component-driven Drupal 11 theme for SemaKare.'
+core_version_requirement: ^10 || ^11
+package: Custom
+base theme: stable9
+libraries:
+  - semakare_theme/global-styles
+regions:
+  header: 'Header'
+  content: 'Content'
+  footer: 'Footer'

@@ -1,0 +1,55 @@
+
+{#
+/**
+ * @file
+ * Default theme implementation for a hero paragraph.
+ * Backend Container Fields: field_badge, field_headline, field_subtext, field_primary_button, field_secondary_button, field_image
+ */
+#}
+<section class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center py-16 md:py-24">
+<div class="relative z-10">
+    {% if content.field_badge|render %}
+    <div class="inline-flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full mb-8 shadow-sm">
+        <span class="material-symbols-outlined text-primary scale-75" data-icon="auto_awesome">auto_awesome</span>
+        <span class="text-xs font-bold tracking-wider uppercase text-on-surface-variant">{{ content.field_badge }}</span>
+    </div>
+    {% endif %}
+
+    <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-tight mb-6">
+        {{ content.field_headline }}
+    </h1>
+
+    <div class="text-xl text-on-surface-variant mb-10 leading-relaxed max-w-md">
+        {{ content.field_subtext }}
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+        {% if content.field_primary_button|render %}
+            <div class="hero-gradient text-on-primary px-8 py-4 rounded-lg font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform">
+                {{ content.field_primary_button }}
+            </div>
+        {% endif %}
+        {% if content.field_secondary_button|render %}
+            <div class="border-2 border-secondary text-secondary px-8 py-4 rounded-lg font-bold text-lg hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined" data-icon="chat">chat</span>
+                {{ content.field_secondary_button }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="inline-flex items-center gap-3 bg-surface-container-lowest shadow-2xl p-2 rounded-full border border-outline-variant/10">
+        <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary" data-icon="support_agent">support_agent</span>
+        </div>
+        <span class="pr-4 font-semibold text-on-surface-variant">Need Help? Chat with an expert</span>
+    </div>
+</div>
+
+<div class="relative">
+    <div class="absolute -top-12 -right-12 w-64 h-64 bg-secondary-container/20 blur-3xl rounded-full"></div>
+    <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-primary-container/10 blur-3xl rounded-full"></div>
+    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+        {{ content.field_image }}
+    </div>
+</div>
+</section>

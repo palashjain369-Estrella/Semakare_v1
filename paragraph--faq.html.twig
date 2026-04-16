@@ -1,0 +1,17 @@
+
+{#
+/**
+ * @file
+ * Default theme implementation for an FAQ paragraph container.
+ * Backend Container Fields: field_headline, field_faq_items
+ */
+#}
+<section class="bg-surface-container-low py-24">
+<div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">{{ content.field_headline }}</h2>
+    <div class="space-y-4">
+        {# Evaluates embedded FAQ item paragraphs #}
+        {{ content.field_faq_items }}
+    </div>
+</div>
+</section>

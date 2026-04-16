@@ -1,0 +1,14 @@
+
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-sm border-b border-outline-variant/10">
+    <div class="flex items-center w-full px-6 py-4 max-w-7xl mx-auto justify-between">
+        <div class="flex-shrink-0">
+            <a class="block cursor-pointer" href="{{ url('<front>') }}">
+                {# Assuming the logo is placed as a drupal block, or mapped directly #}
+                <img alt="SemaKare Logo" class="h-[40px] w-auto" src="/themes/custom/semakare_theme/images/semakare_logo.png" style="object-fit: contain;"/>
+            </a>
+        </div>
+        <div class="hidden md:flex gap-8 items-center absolute left-1/2 -translate-x-1/2">
+            {{ page.header }}
+        </div>
+    </div>
+</nav>

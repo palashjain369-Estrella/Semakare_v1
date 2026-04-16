@@ -1,0 +1,237 @@
+{{ attach_library('semakare_theme/bmi-calculator') }}
+<!-- Centered Intro Hero Section -->
+<section class="max-w-4xl mx-auto px-6 text-center mb-12">
+<h1 class="text-4xl lg:text-5xl font-headline font-extrabold tracking-tight text-on-surface mb-6 leading-tight">
+                Empower Your <span class="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">Health Journey</span>
+</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-10">
+                Access professional-grade clinical tools designed to provide clear, actionable insights into your physical well-being and long-term health metrics.
+            </p>
+<!-- Centrally-aligned Sub-navigation Bar -->
+<div class="flex flex-wrap justify-center items-center gap-2 p-1.5 bg-surface-container/50 backdrop-blur-md rounded-full border border-outline-variant/20 max-w-fit mx-auto">
+<button class="px-6 py-2.5 rounded-full text-sm font-bold bg-white shadow-sm text-primary transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">monitor_weight</span>
+                    BMI Calculator
+                </button>
+<button class="px-6 py-2.5 rounded-full text-sm font-semibold text-on-surface-variant hover:bg-white/50 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">straighten</span>
+                    Waist to Hip Ratio
+                </button>
+<button class="px-6 py-2.5 rounded-full text-sm font-semibold text-on-surface-variant hover:bg-white/50 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">scale</span>
+                    Ideal Weight
+                </button>
+<button class="px-6 py-2.5 rounded-full text-sm font-semibold text-on-surface-variant hover:bg-white/50 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">favorite</span>
+                    CV Risk
+                </button>
+</div>
+</section>
+<!-- BMI Content Section -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 mb-24">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<h2 class="text-3xl lg:text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-6 leading-tight">
+                        Understanding Your <span class="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">Body Composition</span>
+</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-xl">
+                        BMI is a useful starting point to understand your health. Our precision calculator helps you measure where you stand and what it means for your wellness journey.
+                    </p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-secondary-container/30 rounded-full border border-secondary-container/50">
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+<span class="text-sm font-semibold text-on-secondary-container">Clinically Validated</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-primary-fixed/30 rounded-full border border-primary-fixed/50">
+<span class="material-symbols-outlined text-primary text-sm">lock</span>
+<span class="text-sm font-semibold text-on-primary-fixed-variant">Privacy First</span>
+</div>
+</div>
+</div>
+<!-- Calculator Card -->
+<div class="order-1 lg:order-2">
+<div class="glass-card p-8 lg:p-10 rounded-xl shadow-[0_40px_80px_rgba(25,28,30,0.08)] border border-white/40">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-2xl font-headline font-bold text-on-surface">BMI Calculator</h2>
+<div class="flex bg-surface-container rounded-full p-1">
+<button class="px-5 py-2 bg-surface-container-lowest shadow-sm rounded-full text-sm font-bold text-primary transition-all">Metric</button>
+<button class="px-5 py-2 text-sm font-medium text-on-surface-variant hover:text-on-surface transition-all">Imperial</button>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1">Height (cm)</label>
+<input id="height-input" class="w-full bg-surface-container-highest/50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-lg font-medium outline-none" placeholder="175" type="number"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1">Weight (kg)</label>
+<input id="weight-input" class="w-full bg-surface-container-highest/50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-primary/20 transition-all text-lg font-medium outline-none" placeholder="70" type="number"/>
+</div>
+
+<div id="error-message" class="text-error text-sm font-semibold hidden ml-1">Please enter valid positive numbers.</div>
+
+<button id="calculate-btn" class="w-full py-5 bg-gradient-to-r from-primary-container to-tertiary-container text-on-primary font-bold rounded-2xl text-lg shadow-lg shadow-primary/20 hover:opacity-90 active:scale-[0.98] transition-all">
+                                Calculate My BMI
+                            </button>
+
+<div id="bmi-result-container" class="hidden text-center bg-surface-container-low p-6 rounded-2xl border border-outline-variant/20 mt-4">
+    <div class="text-xs font-bold text-secondary uppercase tracking-widest mb-1">Your BMI Is</div>
+    <div id="bmi-result" class="text-5xl font-headline font-extrabold text-primary transition-transform duration-300">0.0</div>
+</div>
+<!-- Scale Preview (Static Visualization) -->
+<div class="pt-6">
+<div class="flex justify-between text-xs font-bold text-on-surface-variant mb-3 px-1">
+<span>Underweight</span>
+<span>Normal</span>
+<span>Overweight</span>
+<span>Obese</span>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full flex overflow-hidden">
+<div id="scale-underweight" class="h-full bg-secondary-fixed w-[18.5%] transition-opacity duration-300"></div>
+<div id="scale-normal" class="h-full bg-secondary w-[25%] border-x-2 border-white/50 transition-opacity duration-300"></div>
+<div id="scale-overweight" class="h-full bg-tertiary-fixed-dim w-[25%] border-x-2 border-white/50 transition-opacity duration-300"></div>
+<div id="scale-obese" class="h-full bg-error md:w-[31.5%] w-auto flex-1 transition-opacity duration-300"></div>
+</div>
+<div class="flex justify-between text-[10px] text-outline mt-2 px-1 font-medium">
+<span>18.5</span>
+<span>25.0</span>
+<span>30.0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Deep Insights Bento Grid -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+<div class="mb-12">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-3 block">Educational Hub</span>
+<h2 class="text-4xl font-headline font-bold text-on-surface">Deep Health Insights</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- What it Measures? -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10 group">
+<div class="flex items-start gap-6">
+<div class="bg-primary/10 p-4 rounded-2xl text-primary">
+<span class="material-symbols-outlined text-4xl">analytics</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold mb-4">What Does BMI Measure?</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                Body Mass Index (BMI) is a person’s weight in kilograms divided by the square of height in meters. It is an inexpensive and easy screening method for weight category—underweight, healthy weight, overweight, and obesity.
+                            </p>
+<div class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all cursor-pointer">
+<span>Learn about screening vs diagnostic</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- How it's Measured -->
+<div class="bg-gradient-to-br from-primary-container to-tertiary text-on-primary p-8 rounded-lg shadow-xl flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-headline font-bold mb-6">The Formula</h3>
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl mb-6">
+<p class="font-mono text-xl text-center">BMI = kg/m²</p>
+</div>
+</div>
+<p class="text-sm text-on-primary-container/80 leading-snug italic">
+                        "A simple calculation that provides a starting point for meaningful health conversations."
+                    </p>
+</div>
+<!-- Health Risks - Low BMI -->
+<div class="bg-surface-container-low p-8 rounded-lg border border-outline-variant/15">
+<span class="material-symbols-outlined text-tertiary mb-6 text-3xl">heart_broken</span>
+<h3 class="text-xl font-headline font-bold mb-4">Risks of Low BMI</h3>
+<ul class="space-y-3 text-sm text-on-surface-variant font-medium">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Malnutrition</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Decreased immune function</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Anemia and fatigue</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Bone loss (osteoporosis)</li>
+</ul>
+</div>
+<!-- Benefits - Normal BMI -->
+<div class="bg-secondary-fixed/20 p-8 rounded-lg border border-secondary/10">
+<span class="material-symbols-outlined text-secondary mb-6 text-3xl">eco</span>
+<h3 class="text-xl font-headline font-bold mb-4 text-on-secondary-fixed-variant">Benefits of Healthy BMI</h3>
+<ul class="space-y-3 text-sm text-on-secondary-fixed-variant font-medium">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Reduced joint &amp; muscle pain</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Better sleep patterns</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Improved cardiovascular health</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Regulation of blood sugar</li>
+</ul>
+</div>
+<!-- Health Risks - High BMI -->
+<div class="bg-error-container/30 p-8 rounded-lg border border-error/10">
+<span class="material-symbols-outlined text-error mb-6 text-3xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="text-xl font-headline font-bold mb-4 text-on-error-container">Risks of High BMI</h3>
+<ul class="space-y-3 text-sm text-on-error-container font-medium">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Type 2 Diabetes</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Hypertension (High BP)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Cardiovascular complications</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-error"></span> Sleep apnea</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Limitations & Bias Section -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 grid lg:grid-cols-2 gap-12 items-center">
+<div class="relative rounded-xl overflow-hidden aspect-video shadow-2xl">
+<img alt="Diverse individuals" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuZEQLRcNWhkIjhm_G2RP0n0xj9z-wopoTI9zcQMYQ4DFaaD_glIoBb29C-6zNha7pODGhzGu_15b-nkkxBAfLkZlVKvzw0gJBSRasPncdrRcnBMsEFD4lcivn7GB3Sljq5aOsfzQCa3NC9Q38Ih-Qc5WOBYXJYAA1qkOJ-l8kG9kjzPPiMdoTdFzyrcw8quVINM7HvvUza0AC8GUbj9aFoUboffvjLe0T2sdk1coFArG--Rr-KiWLzO8CQGZUeoAorMqNBmSe3Zyb"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+</div>
+<div>
+<h2 class="text-3xl font-headline font-bold mb-6">Bias &amp; Limitations</h2>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                    While BMI is a useful population-level screening tool, it has significant limitations for individual assessment. It does not distinguish between excess fat, muscle, or bone mass, nor does it provide any indication of the distribution of fat among individuals.
+                </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 bg-surface-container rounded-2xl">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+<p class="text-sm font-medium">Athletes may have high BMI due to increased muscle mass.</p>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container rounded-2xl">
+<span class="material-symbols-outlined text-primary">elderly</span>
+<p class="text-sm font-medium">Older adults may have more body fat despite a "normal" BMI.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Other Methods Section -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-20 bg-surface-container/50 rounded-xl mb-20">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-headline font-bold mb-4">Beyond the Scale</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto italic">Explore other clinical methods used to assess body composition and health risk more comprehensively.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center p-6">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+<span class="material-symbols-outlined text-primary">straighten</span>
+</div>
+<h4 class="font-bold mb-2">Waist Circumference</h4>
+<p class="text-xs text-on-surface-variant">Measures abdominal fat which is linked to metabolic disease.</p>
+</div>
+<div class="text-center p-6">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+<span class="material-symbols-outlined text-primary">layers</span>
+</div>
+<h4 class="font-bold mb-2">Skinfold Thickness</h4>
+<p class="text-xs text-on-surface-variant">Uses calipers to measure the thickness of subcutaneous fat.</p>
+</div>
+<div class="text-center p-6">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<h4 class="font-bold mb-2">Bioelectrical Impedance</h4>
+<p class="text-xs text-on-surface-variant">Measures body fat via small electrical currents through tissue.</p>
+</div>
+<div class="text-center p-6">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
+<span class="material-symbols-outlined text-primary">radiology</span>
+</div>
+<h4 class="font-bold mb-2">DEXA Scan</h4>
+<p class="text-xs text-on-surface-variant">The gold standard for measuring bone density and fat percentage.</p>
+</div>
+</div>
+</section>

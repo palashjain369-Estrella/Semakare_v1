@@ -1,0 +1,14 @@
+
+{#
+/**
+ * @file
+ * Default theme implementation for the front page.
+ * We rely on Drupal's block system and regions to render content here.
+ * The dynamic blocks (paragraphs) will be rendered inside 'page.content'.
+ */
+#}
+
+{# The content variable yields the fully assembled node containing our paragraph containers #}
+<div class="semakare-front-page-wrapper">
+    {{ page.content }}
+</div>
